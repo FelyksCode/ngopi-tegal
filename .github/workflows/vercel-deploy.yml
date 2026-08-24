@@ -41,7 +41,7 @@ jobs:
         working-directory: web
         run: |
           for i in 1 2 3; do
-            vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} && exit 0
+            vercel deploy --prebuilt --archive=tgz --token=${{ secrets.VERCEL_TOKEN }} && exit 0
             echo "attempt $i gagal, ulangi dalam 15 detik..."
             sleep 15
           done
@@ -73,7 +73,7 @@ jobs:
         working-directory: web
         run: |
           for i in 1 2 3; do
-            vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} && exit 0
+            vercel deploy --prebuilt --prod --archive=tgz --token=${{ secrets.VERCEL_TOKEN }} && exit 0
             echo "attempt $i gagal, ulangi dalam 15 detik..."
             sleep 15
           done
