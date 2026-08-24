@@ -5,8 +5,22 @@ export default function Home() {
   const stats = getStats();
   const cafes = getAllCafes();
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Ngopi Tegal",
+    url: "https://ngopi-tegal.vercel.app",
+    description:
+      "Direktori kedai kopi dan tempat nongkrong di Kota & Kabupaten Tegal",
+    inLanguage: "id-ID",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <section className="mx-auto max-w-6xl px-4 sm:px-6 pt-16 pb-12 sm:pt-24 sm:pb-16">
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end">
           <div className="space-y-6">

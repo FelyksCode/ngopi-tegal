@@ -38,9 +38,17 @@ export async function generateMetadata({
   return {
     title: cafe.name,
     description: desc,
+    alternates: { canonical: `/kafe/${cafe.slug}` },
     openGraph: {
       title: `${cafe.name} · Ngopi Tegal`,
-      description: cafe.address ?? undefined,
+      description: cafe.address ?? desc,
+      url: `/kafe/${cafe.slug}`,
+      images: cafe.photoUrl ? [{ url: cafe.photoUrl }] : undefined,
+    },
+    twitter: {
+      card: cafe.photoUrl ? "summary_large_image" : "summary",
+      title: cafe.name,
+      description: cafe.address ?? desc,
       images: cafe.photoUrl ? [{ url: cafe.photoUrl }] : undefined,
     },
   };

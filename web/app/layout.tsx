@@ -19,19 +19,40 @@ const grotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ngopi-tegal.vercel.app"),
   title: {
     default: "Ngopi Tegal: Daftar Kedai Kopi & Tempat Nongkrong di Tegal",
     template: "%s · Ngopi Tegal",
   },
   description:
     "Direktori lengkap kafe kedai kopi dan tempat nongkrong non-kopi di Kota & Kabupaten Tegal. Cari berdasarkan nama, filter kopi atau non-kopi, lihat jam buka, kisaran harga, dan lokasi Google Maps.",
+  applicationName: "Ngopi Tegal",
+  keywords: [
+    "kafe tegal",
+    "kedai kopi tegal",
+    "ngopi tegal",
+    "tempat nongkrong tegal",
+    "cafe tegal",
+    "kopi tegal",
+    "wisata kuliner tegal",
+  ],
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Ngopi Tegal: Daftar Kedai Kopi & Tempat Nongkrong di Tegal",
     description:
       "Cari kafe kopi dan non-kopi di Tegal: jam buka, harga, rating, dan lokasi Google Maps.",
     locale: "id_ID",
     type: "website",
+    siteName: "Ngopi Tegal",
+    url: "/",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ngopi Tegal: Daftar Kedai Kopi & Tempat Nongkrong di Tegal",
+    description:
+      "105 tempat ngopi & nongkrong di Kota & Kabupaten Tegal, lengkap dengan jam buka, harga, dan lokasi.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
