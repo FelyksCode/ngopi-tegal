@@ -12,6 +12,8 @@ from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 OUT = DATA_DIR / "tegal-cafes.json"
+# salinan untuk website (Root Directory Vercel = web/, jadi data harus di dalam web/)
+WEB_OUT = DATA_DIR.parent / "web" / "data" / "tegal-cafes.json"
 
 # glyph ikon private-use (Material Icons) + karakter tak terlihat lainnya
 INVISIBLE = re.compile(r"[\uE000-\uF8FF\u200b-\u200f\u2060-\u2064\ufe00-\ufe0f\u00ad]")
@@ -165,6 +167,8 @@ def main() -> None:
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
+    WEB_OUT.parent.mkdir(parents=True, exist_ok=True)
+    WEB_OUT.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
 
     stats = {
         "total": len(result),

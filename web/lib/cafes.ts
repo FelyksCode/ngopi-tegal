@@ -23,8 +23,10 @@ export interface Cafe {
   sources: string[];
 }
 
+// data di-bundle di dalam web/ agar ikut ter-upload saat build Vercel
+// (Root Directory = web; scraper-python menyalin hasil merge ke web/data/)
 const DATA_PATH =
-  process.env.DATA_PATH ?? path.join(process.cwd(), "..", "data", "tegal-cafes.json");
+  process.env.DATA_PATH ?? path.join(process.cwd(), "data", "tegal-cafes.json");
 
 let cache: Cafe[] | null = null;
 
