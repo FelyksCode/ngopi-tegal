@@ -5,10 +5,10 @@ on:
     branches: [master, main]
   pull_request:
 
-# batalkan run lama di ref yang sama agar tidak antre berlebihan
+# antrekan run di ref yang sama; JANGAN batalkan di tengah upload
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -38,8 +38,14 @@ jobs:
         working-directory: web
 
       - name: Deploy preview
-        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: web
+        run: |
+          for i in 1 2 3; do
+            vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} && exit 0
+            echo "attempt $i gagal, ulangi dalam 15 detik..."
+            sleep 15
+          done
+          exit 1
 
   production:
     if: github.event_name == 'push'
@@ -64,5 +70,11 @@ jobs:
         working-directory: web
 
       - name: Deploy production
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: web
+        run: |
+          for i in 1 2 3; do
+            vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} && exit 0
+            echo "attempt $i gagal, ulangi dalam 15 detik..."
+            sleep 15
+          done
+          exit 1
