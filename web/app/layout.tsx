@@ -20,13 +20,13 @@ const grotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kafe Tegal: Daftar Kedai Kopi & Tempat Nongkrong di Tegal",
-    template: "%s · Kafe Tegal",
+    default: "Ngopi Tegal: Daftar Kedai Kopi & Tempat Nongkrong di Tegal",
+    template: "%s · Ngopi Tegal",
   },
   description:
     "Direktori lengkap kafe kedai kopi dan tempat nongkrong non-kopi di Kota & Kabupaten Tegal. Cari berdasarkan nama, filter kopi atau non-kopi, lihat jam buka, kisaran harga, dan lokasi Google Maps.",
   openGraph: {
-    title: "Kafe Tegal: Daftar Kedai Kopi & Tempat Nongkrong di Tegal",
+    title: "Ngopi Tegal: Daftar Kedai Kopi & Tempat Nongkrong di Tegal",
     description:
       "Cari kafe kopi dan non-kopi di Tegal: jam buka, harga, rating, dan lokasi Google Maps.",
     locale: "id_ID",
@@ -47,7 +47,7 @@ export default function RootLayout({
           <div className="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
             <Link href="/" className="flex items-baseline gap-2 group">
               <span className="font-display font-extrabold text-xl tracking-tight text-chalk group-hover:text-amber transition-colors">
-                Kafe<span className="text-amber">·</span>Tegal
+                Ngopi<span className="text-amber">·</span>Tegal
               </span>
               <span className="hidden sm:inline font-data text-[11px] uppercase tracking-[0.18em] text-chalk-dim">
                 direktori kedai

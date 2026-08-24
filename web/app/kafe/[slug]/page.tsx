@@ -42,7 +42,7 @@ export async function generateMetadata({
     title: cafe.name,
     description: desc,
     openGraph: {
-      title: `${cafe.name} · Kafe Tegal`,
+      title: `${cafe.name} · Ngopi Tegal`,
       description: cafe.address ?? undefined,
       images: cafe.photoUrl ? [{ url: cafe.photoUrl }] : undefined,
     },
