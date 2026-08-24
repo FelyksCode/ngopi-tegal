@@ -21,6 +21,7 @@ export interface Cafe {
   lat: number | null;
   lon: number | null;
   sources: string[];
+  addedAt?: string | null;
 }
 
 // data di-bundle di dalam web/ agar ikut ter-upload saat build Vercel
