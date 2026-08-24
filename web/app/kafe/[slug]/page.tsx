@@ -6,15 +6,12 @@ import {
   ArrowLeft,
   ArrowUpRight,
   MapPin,
-  WhatsappLogo,
-  Globe,
 } from "@phosphor-icons/react/dist/ssr";
 import { StampBadge } from "@/components/CafeCard";
 import {
   DAY_ORDER,
   getAllCafes,
   getCafeBySlug,
-  waLink,
   type Cafe,
 } from "@/lib/cafes";
 
@@ -114,7 +111,6 @@ export default async function CafePage({
   if (!cafe) notFound();
 
   const isKopi = cafe.types.includes("kopi");
-  const wa = waLink(cafe.phone);
 
   return (
     <article className="mx-auto max-w-6xl px-4 sm:px-6 pt-10 pb-16">
@@ -203,33 +199,6 @@ export default async function CafePage({
               >
                 <MapPin aria-hidden />
                 Buka di Google Maps
-                <ArrowUpRight aria-hidden />
-              </a>
-            )}
-            {wa && (
-              <a
-                href={wa}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${btnBase} border border-chalk/20 text-chalk hover:border-amber hover:text-amber motion-safe:active:scale-[0.98]`}
-              >
-                <WhatsappLogo aria-hidden />
-                Chat WhatsApp
-              </a>
-            )}
-            {cafe.website && (
-              <a
-                href={
-                  cafe.website.startsWith("http")
-                    ? cafe.website
-                    : `https://${cafe.website}`
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${btnBase} border border-chalk/20 text-chalk hover:border-amber hover:text-amber motion-safe:active:scale-[0.98]`}
-              >
-                <Globe aria-hidden />
-                Situs web
                 <ArrowUpRight aria-hidden />
               </a>
             )}
